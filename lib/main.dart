@@ -6,6 +6,7 @@ import 'views/login_view.dart';
 import 'views/register_view.dart';
 import 'views/verify_email_view.dart';
 import 'views/notes_view.dart';
+import 'constants/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +18,10 @@ void main() {
         ),
         home: const HomePage(),
         routes: {
-          '/login/': (context) => const LoginView(),
-          '/register/': (context) => const RegisterView(),
-          '/notes/': (context) => const NotesView(),
+          loginRoute: (context) => const LoginView(),
+          registerRoute: (context) => const RegisterView(),
+          notesRoute: (context) => const NotesView(),
+          verifyRoute: (context) => const VerifyEmailView()
         }),
   );
 }
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget {
               return const LoginView();
             }
           default:
-            return const CircularProgressIndicator();
+            return const Scaffold(body: CircularProgressIndicator());
         }
       },
     );
